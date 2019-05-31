@@ -1,0 +1,17 @@
+{
+    "name": "denis909/core",
+    "description": "PHP Micro Framework",
+    "authors": [
+        {
+            "name": "denis909"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "autoload": {
+        "psr4": {
+            "denis909\\core": "src"
+        }
+    }
+}
