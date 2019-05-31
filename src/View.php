@@ -11,7 +11,7 @@ class View
 
     use RenderFileTrait;
 
-    protected $viewPath;
+    public $viewPath;
 
     public function getViewPath()
     {

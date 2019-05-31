@@ -52,3 +52,7 @@ if ($row)
 {
     throw new Exception('not deleted.');
 }
+
+$view = new denis909\core\View;
+
+echo $view->renderFile(__DIR__ . '/README.md');
