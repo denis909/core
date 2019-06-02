@@ -68,7 +68,16 @@ class DbMySQLiAdapter implements DbAdapterInterface
     {
         $result = $this->query($sql);
 
-        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+        //return mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+        $return = [];
+
+        while($row = $result->fetch_assoc())
+        {
+            $return[] = $row;
+        }
+
+        return $return;
     }
 
     public function escape($sql)
