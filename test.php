@@ -37,11 +37,10 @@ $sql = $db->createCommand()->findAll('test', ['id' => $id]) . "\n";
 
 $all = $db->findAll(['test' => ['id']], ['id' => $id]);
 
-print_r($all);
-
 $row = $db->findOne('test', ['id' => $id]);
 
-print_r($row);
+echo 'Object ID: ' . $row->id . "\n";
+echo 'Array ID: ' . $row['id'] . "\n";
 
 $row = $db->findOne('test', 'id=:id', [':id' => $id]);
 

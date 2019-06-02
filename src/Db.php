@@ -61,7 +61,14 @@ class Db
 
         $sql = strtr($sql, $params);
 
-        return $this->getAdapter()->queryAll($sql);
+        $return = $this->getAdapter()->queryAll($sql);
+
+        foreach($return as $key => $value)
+        {
+            $return[$key] = new ArrayObject($value);
+        }
+
+        return $return;
     }
 
     public function queryOne($sql, $params = [])
@@ -70,7 +77,14 @@ class Db
 
         $sql = strtr($sql, $params);
 
-        return $this->getAdapter()->queryOne($sql);
+        $return = $this->getAdapter()->queryOne($sql);
+   
+        if ($return)
+        {
+            $return = new ArrayObject($return);
+        }
+
+        return $return;
     }
 
     public function escapeParams($params = [])
