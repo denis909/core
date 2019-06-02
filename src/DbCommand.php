@@ -115,7 +115,7 @@ class DbCommand
         return $sql;
     }
 
-    public function findOne($from, $where = null, $params = [], $suffix = null)
+    public function findOne($from, $where = null, $params = [], $suffix = '')
     {
         $sql = 'SELECT ' . $this->columns($from) . ' FROM ' . $this->table($from);
 
@@ -129,7 +129,7 @@ class DbCommand
             $sql .= ' ' . $suffix;
         }
 
-        $sql .= ';';
+        $sql .= ' LIMIT 1;';
 
         return $sql;
     }
