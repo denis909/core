@@ -9,7 +9,7 @@ namespace denis909\core;
 class Html
 {
 
-    public function escape($string, $encoding = 'utf-8', $specialCharsFlags = null)
+    public static function escape($string, $encoding = 'utf-8', $specialCharsFlags = null)
     {
         if (!$specialCharsFlags)
         {
