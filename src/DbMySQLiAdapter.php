@@ -38,7 +38,7 @@ class DbMySQLiAdapter implements DbAdapterInterface
         }        
     }
 
-    public function connection()
+    public function getConnection()
     {
         return $this->_connection;
     }

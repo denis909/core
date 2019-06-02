@@ -22,7 +22,7 @@ class View
     {
         $filename = $this->getViewPath() . '/' . $template . '.php';
 
-        return $this->renderFile($filename);
+        return $this->renderFile($filename, $params);
     }
 
 }
