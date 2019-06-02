@@ -18,6 +18,11 @@ class View
         return $this->viewPath;
     }
 
+    public function escape($string, $encoding = 'utf-8', $specialCharsFlags = null)
+    {
+        return Html::escape($string, $encoding, $specialCharsFlags);
+    }
+
     public function render($template, $params = [])
     {
         $filename = $this->getViewPath() . '/' . $template . '.php';
