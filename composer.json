@@ -10,7 +10,7 @@
         "php": ">=5.4"
     },
     "autoload": {
-        "psr4-": {
+        "psr-4": {
             "denis909\\core": "src/"
         }
     }
