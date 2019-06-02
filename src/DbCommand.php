@@ -1,6 +1,6 @@
 <?php
 /**
- * @package Core
+ * @package PHP Micro Framework
  * @license MIT License
  * @link    http://denis909.spb.ru/en
  */

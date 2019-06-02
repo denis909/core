@@ -1,6 +1,6 @@
 <?php
 /**
- * @package Core
+ * @package PHP Micro Framework
  * @license MIT License
  * @link    http://denis909.spb.ru/en
  */
@@ -17,9 +17,9 @@ class DbConfig
 
     public $db;
 
-    public $charset = "utf8";
+    public $charset;
 
-    public function __construct($host, $user, $password, $db)
+    public function __construct($host, $user, $password, $db, $charset = 'utf8')
     {
         $this->host = $host;
 
@@ -28,6 +28,8 @@ class DbConfig
         $this->password = $password;
 
         $this->db = $db;
+        
+        $this->charset = $charset;        
     }
 
 }

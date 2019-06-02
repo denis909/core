@@ -1,6 +1,6 @@
 <?php
 /**
- * @package Core
+ * @package PHP Micro Framework
  * @license MIT License
  * @link    http://denis909.spb.ru/en
  */
@@ -19,9 +19,7 @@ class DbMySQLiAdapter implements DbAdapterInterface
         {
             $error = mysqli_connect_error();
        
-            //throw new DbException($error);
-        
-            throw new \Exception('11');
+            throw new DbException($error);
         }
         else
         {
