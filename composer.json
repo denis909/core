@@ -1,5 +1,6 @@
 {
     "name": "denis909/core",
+    "license": "MIT",
     "description": "PHP Micro Framework",
     "authors": [
         {

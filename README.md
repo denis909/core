@@ -1,2 +1,1 @@
-# core
-PHP Micro Framework
+# PHP Micro Framework
