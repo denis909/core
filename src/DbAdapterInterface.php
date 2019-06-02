@@ -13,6 +13,8 @@ interface DbAdapterInterface
 
     function __destruct();
 
+    function connection();
+
     function query($sql);
 
     function escape($sql);

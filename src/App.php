@@ -13,7 +13,7 @@ abstract class App
 
     protected static $_services = [];
 
-    protected static function getService($name, $default = null)
+    protected static function service($name, $default = null)
     {
         if (array_key_exists($name, static::$_services))
         {

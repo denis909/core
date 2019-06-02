@@ -38,6 +38,11 @@ class DbMySQLiAdapter implements DbAdapterInterface
         }        
     }
 
+    public function connection()
+    {
+        return $this->_connection;
+    }
+
     public function query($sql)
     {
         $return = mysqli_query($this->_connection, $sql);

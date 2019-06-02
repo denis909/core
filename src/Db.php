@@ -16,9 +16,14 @@ class Db
         $this->_adapter = $adapter;
     }
 
-    public function getAdapter()
+    public function adapter()
     {
         return $this->_adapter;
+    }
+
+    public function connection()
+    {
+        return $this->adapter()->connection();
     }
 
     public function createCommand()
@@ -28,17 +33,17 @@ class Db
 
     public function query($sql, $params = [])
     {
-        return $this->getAdapter()->query($sql);
+        return $this->adapter()->query($sql);
     }
 
     public function insertId()
     {
-        return $this->getAdapter()->insertId();
+        return $this->adapter()->insertId();
     }
 
     public function escape($string)
     {
-        return $this->getAdapter()->escape($string);
+        return $this->adapter()->escape($string);
     }
 
     public function count($sql, $params = [])
@@ -47,7 +52,7 @@ class Db
 
         $sql = strtr($sql, $params);
 
-        return $this->getAdapter()->count($sql);
+        return $this->adapter()->count($sql);
     }
 
     public function queryAll($sql, $params = [])
@@ -56,7 +61,7 @@ class Db
 
         $sql = strtr($sql, $params);
 
-        return $this->getAdapter()->queryAll($sql);
+        return $this->adapter()->queryAll($sql);
     }
 
     public function queryOne($sql, $params = [])
@@ -65,7 +70,7 @@ class Db
 
         $sql = strtr($sql, $params);
 
-        return $this->getAdapter()->queryOne($sql);
+        return $this->adapter()->queryOne($sql);
     }
 
     public function escapeParams($params = [])
