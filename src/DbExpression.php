@@ -9,7 +9,7 @@ namespace denis909\core;
 class DbExpression
 {
 
-    use InstanceOfTrait;
+    use IsInstanceOfTrait;
 
     protected $_sql;
 

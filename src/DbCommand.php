@@ -36,7 +36,7 @@ class DbCommand
 
             $sql .= '`' . $key . '` = ';
 
-            if (DbExpression::instanceOf($value))
+            if (DbExpression::isInstanceOf($value))
             {
                 $sql .= $value->getSql();
             }

@@ -3,7 +3,7 @@
 $files = scandir(__DIR__ . '/src');
 
 require_once __DIR__ . '/src/Exception.php';
-require_once __DIR__ . '/src/InstanceOfTrait.php';
+require_once __DIR__ . '/src/IsInstanceOfTrait.php';
 
 foreach($files as $file)
 {

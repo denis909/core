@@ -6,14 +6,17 @@
  */
 namespace denis909\core;
 
-trait InstanceOfTrait
+trait IsInstanceOfTrait
 {
 
-    public static function instanceOf($object)
+    public static function isInstanceOf($object, $class = null)
     {
         if (is_object($object))
         {
-            $class = get_called_class();
+            if (!$class)
+            {
+                $class = get_called_class();
+            }
 
             if ($object instanceof $class)
             {

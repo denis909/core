@@ -43,6 +43,11 @@ class Db
 
     public function escape($string)
     {
+        if(is_null($string))
+        {
+            return 'NULL';
+        }
+
         return $this->getAdapter()->escape($string);
     }
 
@@ -91,7 +96,7 @@ class Db
     {
         foreach($params as $key => $value)
         {
-            if (DbExpression::instanceOf($value))
+            if (DbExpression::isInstanceOf($value))
             {
                 $params[$key] = $value->getSql();
             }
