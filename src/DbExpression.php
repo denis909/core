@@ -9,6 +9,8 @@ namespace denis909\core;
 class DbExpression
 {
 
+    use InstanceOfTrait;
+
     protected $_sql;
 
     public function __construct($sql)
@@ -23,22 +25,7 @@ class DbExpression
 
     public function getSql()
     {
-        return $this->_expression;
-    }
-
-    public static function instanceOf($object)
-    {
-        if (is_object($object))
-        {
-            $class = get_called_class();
-
-            if ($object instanceof $class)
-            {
-                return true;
-            }
-        }
-
-        return false;
+        return $this->_sql;
     }
 
 }
