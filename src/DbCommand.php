@@ -23,7 +23,7 @@ class DbCommand
         return $this->_db;
     }
 
-    public function values($values)
+    public function values($values, $devider = ', ')
     {
         $sql = '';
 
@@ -31,7 +31,7 @@ class DbCommand
         {
             if ($sql)
             {
-                $sql .= ', ';
+                $sql .= $devider;
             }
 
             $sql .= '`' . $key . '` = ';
@@ -53,7 +53,7 @@ class DbCommand
     {
         if (is_array($where))
         {
-            return $this->values($where);
+            return $this->values($where, ' AND ');
         }
         else
         {
