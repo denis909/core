@@ -13,7 +13,10 @@ class ArrayObjectTest extends \PHPUnit\Framework\TestCase
     {
         try
         {
-            $object = new ArrayObject(['param1' => 'value 1']);
+            $object = new ArrayObject([
+                'param1' => 'value 1',
+                'param2' => 'value 2'
+            ]);
         }
         catch(Exception $e)
         {
