@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @package PHP Micro Framework
  * @license MIT License
@@ -29,7 +28,7 @@ class ArrayObject extends stdClass implements ArrayAccess
     {
         if (!array_key_exists($name, $this->_container))
         {
-            return null;
+            throw new Exception('Undefined property: ' . $name);
         }
 
         return $this->_container[$name];
@@ -37,19 +36,37 @@ class ArrayObject extends stdClass implements ArrayAccess
 
     public function __set($name, $value)
     {
+        if (!array_key_exists($name, $this->_container))
+        {
+            throw new Exception('Undefined property: ' . $name);
+        }    
+
         $this->_container[$name] = $value;
-    }    
+    }
+
+    public function getProperty($name, $default = null)
+    {
+        if (array_key_exists($name, $this->_container))
+        {
+            return $this->_container[$name];
+        }
+
+        return $default;
+    }
+
+    public function setProperty($name, $value)
+    {
+        $this->_container[$name] = $value;
+    }
 
     public function offsetSet($offset, $value)
     {
-        if (is_null($offset))
+        if (!array_key_exists($offset, $this->_container))
         {
-            $this->_container[] = $value;
+            throw new Exception('Undefined offset: ' . $offset);
         }
-        else
-        {
-            $this->_container[$offset] = $value;
-        }
+
+        $this->_container[$offset] = $value;
     }
 
     public function offsetExists($offset)
@@ -59,12 +76,17 @@ class ArrayObject extends stdClass implements ArrayAccess
 
     public function offsetUnset($offset)
     {
-        unset($this->_container[$offset]);
+        throw new Exception('Unset is not allowed.');
     }
 
     public function offsetGet($offset)
     {
-        return isset($this->_container[$offset]) ? $this->_container[$offset] : null;
+        if (!array_key_exists($offset, $this->_container))
+        {
+            throw new Exception('Undefined offset: ' . $offset);
+        }
+
+        return $this->_container[$offset];
     }
 
 }

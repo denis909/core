@@ -3,7 +3,7 @@
 $files = scandir(__DIR__ . '/src');
 
 require_once __DIR__ . '/src/Exception.php';
-require_once __DIR__ . '/src/IsInstanceOfTrait.php';
+require_once __DIR__ . '/src/IsSubclassTrait.php';
 
 foreach($files as $file)
 {
@@ -39,7 +39,40 @@ $all = $db->findAll(['test' => ['id']], ['id' => $id]);
 
 $row = $db->findOne('test', ['id' => $id]);
 
+$b = false;
+
+try
+{
+    $row->mySuperField;
+}
+catch(Exception $e)
+{
+    $b = true; // success
+}
+
+if (!$b)
+{
+    throw new Exception('mySuperField not throw exception.');
+}
+
+$b = false;
+
+try
+{
+    $row['mySuperField2'];
+}
+catch(Exception $e)
+{
+    $b = true; // success
+}
+
+if (!$b)
+{
+    throw new Exception('mySuperField2 not throw exception.');
+}
+
 echo 'Object ID: ' . $row->id . "\n";
+
 echo 'Array ID: ' . $row['id'] . "\n";
 
 $row = $db->findOne('test', 'id=:id', [':id' => $id]);
