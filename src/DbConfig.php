@@ -19,7 +19,7 @@ class DbConfig
 
     public $charset;
 
-    public function __construct($host, $user, $password, $db, $charset = 'utf8')
+    public function __construct($host = null, $user = null, $password = null, $db = null, $charset = 'utf8')
     {
         $this->host = $host;
 

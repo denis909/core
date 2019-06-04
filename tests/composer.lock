@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/denis909/core.git",
-                "reference": "406399b87df82fa7778d0ca131362bc540247f0e"
+                "reference": "45727a525ee749fef6c411bf2fe4106e63f0cb38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/denis909/core/zipball/406399b87df82fa7778d0ca131362bc540247f0e",
-                "reference": "406399b87df82fa7778d0ca131362bc540247f0e",
+                "url": "https://api.github.com/repos/denis909/core/zipball/45727a525ee749fef6c411bf2fe4106e63f0cb38",
+                "reference": "45727a525ee749fef6c411bf2fe4106e63f0cb38",
                 "shasum": ""
             },
             "require": {
@@ -39,7 +39,7 @@
                 }
             ],
             "description": "PHP Micro Framework",
-            "time": "2019-06-02T13:43:56+00:00"
+            "time": "2019-06-03T21:05:38+00:00"
         },
         {
             "name": "doctrine/instantiator",
