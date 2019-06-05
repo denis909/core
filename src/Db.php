@@ -109,29 +109,29 @@ class Db
         return $params;
     }
 
-    public function findAll()
+    public function findAll($from, $where = null, $params = [], $suffix = null)
     {
         $command = $this->createCommand();
 
-        $sql = call_user_func_array([$command, 'findAll'], func_get_args());
+        $sql = $command->findAll($from, $where, $params, $suffix);
    
         return $this->queryAll($sql);
     }
 
-    public function findOne()
+    public function findOne($from, $where = null, $params = [], $suffix = '')
     {
         $command = $this->createCommand();
 
-        $sql = call_user_func_array([$command, 'findOne'], func_get_args());
+        $sql = $command->findOne($from, $where, $params, $suffix);
     
         return $this->queryOne($sql);
     }
 
-    public function insert()
+    public function insert($table, $values = [])
     {
         $command = $this->createCommand();
 
-        $sql = call_user_func_array([$command, 'insert'], func_get_args());
+        $sql = $command->insert($table, $values);
     
         $result = $this->query($sql);
 
@@ -143,20 +143,20 @@ class Db
         return $this->insertId();
     }
 
-    public function update()
+    public function update($table, $values, $where, $params = [])
     {
         $command = $this->createCommand();
 
-        $sql = call_user_func_array([$command, 'update'], func_get_args());
+        $sql = $command->update($table, $values, $where, $params);
 
         return $this->query($sql);
     }
 
-    public function delete()
+    public function delete($table, $where, $params = [])
     {
         $command = $this->createCommand();
 
-        $sql = call_user_func_array([$command, 'delete'], func_get_args());
+        $sql = $command->delete($table, $where, $params);
 
         return $this->query($sql);
     }
