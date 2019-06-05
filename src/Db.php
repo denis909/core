@@ -96,7 +96,7 @@ class Db
     {
         foreach($params as $key => $value)
         {
-            if (DbExpression::isSubclass($value))
+            if (DbExpression::isSubclassOf($value))
             {
                 $params[$key] = $value->getSql();
             }

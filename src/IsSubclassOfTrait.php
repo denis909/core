@@ -6,10 +6,10 @@
  */
 namespace denis909\core;
 
-trait IsSubclassTrait
+trait IsSubclassOfTrait
 {
 
-    public static function isSubclass($object, $class = null)
+    public static function isSubclassOf($object, $class = null)
     {
         if (!$class)
         {
