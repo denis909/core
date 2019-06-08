@@ -2,7 +2,7 @@
     "minimum-stability" : "dev",
     "prefer-stable" : true,
     "require": {
-        "denis909/core": "dev-master",
+        "denis909/php-micro-framework": "dev-master",
         "phpunit/phpunit": "^8.1"
     }
 }
