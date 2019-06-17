@@ -23,8 +23,17 @@ class DbCommand
         return $this->_db;
     }
 
-    public function values($values, $devider = ', ')
+    public function values($values, $isWhere = false)
     {
+        if ($isWhere)
+        {
+            $devider = ' AND '
+        }
+        else
+        {
+            $devider = ', ';
+        }
+
         $sql = '';
 
         foreach($values as $key => $value)
@@ -34,15 +43,22 @@ class DbCommand
                 $sql .= $devider;
             }
 
-            $sql .= '`' . $key . '` = ';
-
-            if (DbExpression::isSubclassOf($value))
+            if (($value === null) && $isWhere)
             {
-                $sql .= $value->getSql();
+                $sql .= '`' . $key . '` IS NULL';
             }
             else
             {
-                $sql .= "'" . $this->getDb()->escape($value) . "'";
+                $sql .= '`' . $key . '` = ';
+
+                if (DbExpression::isSubclassOf($value))
+                {
+                    $sql .= $value->getSql();
+                }
+                else
+                {
+                    $sql .= "'" . $this->getDb()->escape($value) . "'";
+                }
             }
         }
 
@@ -53,10 +69,15 @@ class DbCommand
     {
         if (is_array($where))
         {
-            return $this->values($where, ' AND ');
+            return $this->values($where, true);
         }
         else
         {
+            if ($params === null)
+            {
+                return $where;
+            }
+
             return strtr($where, $params);
         }
     }
