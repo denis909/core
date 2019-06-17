@@ -27,7 +27,7 @@ class DbCommand
     {
         if ($isWhere)
         {
-            $devider = ' AND '
+            $devider = ' AND ';
         }
         else
         {
